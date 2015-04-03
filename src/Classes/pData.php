@@ -280,6 +280,23 @@ class pData
     }
 
     /**
+     * Set the colour of a given serie
+     * @param type $Series
+     * @param type $Color
+     */
+    public function setSerieColor($Series, $Color)
+    {
+        if ( !is_array($Series) ) {
+            $Series = $this->convertToArray($Series);
+        }
+        foreach($Series as $Key => $Serie) {
+            if (isset($this->Data["Series"][$Serie]) ) {
+                $this->Data["Series"][$Serie]["Color"] = $Color;
+            }
+        }
+    }
+
+    /**
      * Set the name of the X Axis
      * @param type $Name
      */
